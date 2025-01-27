@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>love u bby</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('https://c1.wallpaperflare.com/preview/544/538/350/romance-love-couple-heart.jpg') no-repeat center center/cover;
+      overflow: hidden;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+      color: #ffd700;
+      position: absolute;
+      top: 20px;
+    }
+
+    #timer {
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      color: #ff69b4;
+      position: absolute;
+      top: 250px;
+    }
+
+    .spotify-player {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 300px;
+      height: 80px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+    }
+
+    #signature {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff4500;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .quote {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #ffb6c1;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .note-wrapper {
+      display: inline-block;
+      position: relative;
+      margin-top: 200px;
+    }
+
+    .note {
+      background-color: #ffb6c1;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+      width: 200px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .note:hover {
+      background-color: #ff69b4;
+    }
+
+    .note-content {
+      display: none;
+      margin-top: 10px;
+      background-color: rgba(255, 105, 180, 0.7);
+      color: #000;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    #loveMessage {
+      font-size: 1.2rem;
+      color: white;
+      margin-top: 20px;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      text-align: left;
+      font-weight: bold;
+      max-width: 200px;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>love u bby</h1>
+  <div id="timer">Loading...</div>
+
+  <div class="spotify-player">
+    <iframe src="https://open.spotify.com/embed/track/5ks7fVLJY4QRlAALIqJfMR?si=a1f2a4f65b654b6c" width="100%" height="100%" frameborder="0" allow="encrypted-media"></iframe>
+  </div>
+
+  <div id="signature">M&N 4ever</div>
+
+  <div class="quote">
+    "I love you not only for what you are, but for what I am when I am with you."
+  </div>
+
+  <div class="note-wrapper">
+    <div class="note" onclick="toggleNote()">أوعك تضغطي</div>
+    <div class="note-content" id="noteContent">
+      هو مش انا قولت متضغطيش !!؟؟؟ على العموم بحبك بس
+    </div>
+  </div>
+
+  <div id="loveMessage"></div>
+
+  <script>
+    const startDate = new Date("2024-11-09T00:00:00");
+
+    function updateTimer() {
+      const now = new Date();
+
+      const diff = now - startDate;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("timer").innerText =
+        `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    function toggleNote() {
+      const noteContent = document.getElementById("noteContent");
+      if (noteContent.style.display === "block") {
+        noteContent.style.display = "none";
+      } else {
+        noteContent.style.display = "block";
+      }
+    }
+
+    const messages = [
+      "You are my everything.",
+      "I love you more than words can say.",
+      "Every moment with you is a blessing.",
+      "You complete me in ways I never imagined.",
+      "You make my heart skip a beat every time.",
+      "Being with you is my favorite thing.",
+      "You are my reason to smile every day.",
+      "Forever and always, I’ll be yours.",
+      "Your love fills my heart with happiness.",
+      "I can’t imagine my life without you."
+    ];
+
+    function getRandomMessage() {
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      return messages[randomIndex];
+    }
+
+    document.getElementById("loveMessage").innerText = getRandomMessage();
+  </script>
+</body>
+</html>
